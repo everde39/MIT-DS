@@ -2,8 +2,8 @@
 import numpy as np
 
 theta = np.array([0, 0])
-#x = np.array([[-1, -1], [1, 0], [-1, 1.5]])
-x = np.array([[1,0], [-1,1.5], [-1,-1]])
+#x = np.array([[-1, -1], [1, 0], [-1, 10]])     #array of x in order x1-x3
+x = np.array([[1,0], [-1,10], [-1,-1]])         #array of x in order x2-x1
 
 #y = np.array([[1], [-1], [1]])
 y = np.array([[-1], [1], [1]])
@@ -18,3 +18,5 @@ for t in range(1001):
 
 
 print(list_theta)
+
+# [[-1,-1],[-2,9],[-3,8],[-4,7],[-5,6],[-6,5]]
