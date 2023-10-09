@@ -48,7 +48,7 @@ y = np.array([2, 2.7, -0.7, 2])
 
 def hinge_loss(z):
     if z >= 1:
-        return 0
+        return 0  
     else:
         return 1 - z
 
@@ -67,3 +67,24 @@ def empirical_risk(theta, x, y):
 
 #%%
 risk = empirical_risk(theta, x, y)
+#%%
+def squared_loss(z):
+    return (z**2) / 2
+
+def empirical_risk(theta, x, y):
+    n = len(y)
+    risk = 0
+    
+    for t in range(n):
+        # Calculate the linear combination of features and weights
+        z = np.dot(theta, x[:, t])
+        
+        # Calculate the squared loss for the current data point
+        loss = squared_loss(y[t] - z)
+        
+        # Accumulate the loss for this data point to the total risk
+        risk += loss
+    
+    # Calculate the empirical risk by dividing the accumulated loss by the number of data points
+    return risk / n
+
